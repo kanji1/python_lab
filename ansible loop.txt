@@ -1,0 +1,22 @@
+---
+- name: creation of users using loop
+  hosts:  ansible2.example.com
+  become: true
+  tasks:
+    - name: Create new users
+      user:
+        name: '{{ item.name }}'
+        uid:  '{{ item.uid }}'
+        state: present
+
+      loop:
+        - name: johny
+          uid: 720
+
+
+        - name: mikeesr
+          uid: 820
+
+
+        - name: andrewest
+          uid: 920
